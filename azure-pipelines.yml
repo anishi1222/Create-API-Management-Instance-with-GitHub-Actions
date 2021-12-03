@@ -1,0 +1,41 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'vs2017-win2016'
+
+steps:
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'Microsoft Azure Internal Consumption(8b45cdb2-bc55-4605-9e2d-09ef038fcbf3)'
+    subscriptionId: '8b45cdb2-bc55-4605-9e2d-09ef038fcbf3'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'apim-ci-cd-arm-validate'
+    location: 'Southeast Asia'
+    templateLocation: 'Linked artifact'
+    csmFile: 'instance.json'
+    csmParametersFile: 'parameter.json'
+    deploymentMode: 'Validation'
+
+- task: Delete Resource Group if it is empty@1
+  inputs:
+    ConnectedServiceNameSelector: 'ConnectedServiceNameARM'
+    ConnectedServiceNameARM: 'Microsoft Azure Internal Consumption(8b45cdb2-bc55-4605-9e2d-09ef038fcbf3)'
+    resourceGroupName: 'apim-ci-cd-arm-validate'
+
+- task: CopyFiles@2
+  inputs:
+    Contents: '*.json'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'ValidatedArtifact'
+    publishLocation: 'Container'
