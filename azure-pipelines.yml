@@ -17,7 +17,7 @@ steps:
     subscriptionId: '8b45cdb2-bc55-4605-9e2d-09ef038fcbf3'
     action: 'Create Or Update Resource Group'
     resourceGroupName: 'apim-ci-cd-arm-validate'
-    location: 'Southeast Asia'
+    location: 'Japan East'
     templateLocation: 'Linked artifact'
     csmFile: 'instance.json'
     csmParametersFile: 'parameter.json'
