@@ -11,10 +11,13 @@ pool:
 
 steps:
 - task: AzureResourceManagerTemplateDeployment@3
+  env:
+    SUBSCRIPTION_ID: ${{ secrets.SUBSCRIPTION_ID }}
+    CONNECTIONSERVICENAME: ${{ secrets.CONNECTIONSERVICENAME }}
   inputs:
     deploymentScope: 'Resource Group'
-    azureResourceManagerConnection: 'Microsoft Azure Internal Consumption(8b45cdb2-bc55-4605-9e2d-09ef038fcbf3)'
-    subscriptionId: '8b45cdb2-bc55-4605-9e2d-09ef038fcbf3'
+    azureResourceManagerConnection: $CONNECTIONSERVICENAME
+    subscriptionId: $SUBSCRIPTION_ID
     action: 'Create Or Update Resource Group'
     resourceGroupName: 'apim-ci-cd-arm-validate'
     location: 'Japan East'
@@ -26,7 +29,7 @@ steps:
 - task: Delete Resource Group if it is empty@1
   inputs:
     ConnectedServiceNameSelector: 'ConnectedServiceNameARM'
-    ConnectedServiceNameARM: 'Microsoft Azure Internal Consumption(8b45cdb2-bc55-4605-9e2d-09ef038fcbf3)'
+    ConnectedServiceNameARM: $CONNECTIONSERVICENAME
     resourceGroupName: 'apim-ci-cd-arm-validate'
 
 - task: CopyFiles@2
