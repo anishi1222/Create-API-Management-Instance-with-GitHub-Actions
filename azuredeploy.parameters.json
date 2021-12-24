@@ -4,7 +4,7 @@
   "parameters": {
     "sku": {
       "value": "Consumption"
-    }
+    },
     "publisherEmail": {
       "value": "email@example.com"
     },
