@@ -6,10 +6,10 @@ permissions:
       contents: read
       
 jobs: 
-  build-and-deploy:
+  Login-Azure-on-Linux:
     runs-on: ubuntu-latest
     steps:
-    - name: 'Az CLI login'
+    - name: OIDC Login to Azure Public Cloud with Azure CLI
       uses: azure/login@v1
       with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
