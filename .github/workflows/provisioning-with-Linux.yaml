@@ -2,8 +2,8 @@ name: Run Azure Login with OpenID Connect via Azure CLI
 on: [push]
 
 permissions:
-      id-token: write
-      contents: read
+  id-token: write
+  contents: read
       
 jobs: 
   Login-Azure-on-Linux:
@@ -12,9 +12,9 @@ jobs:
     - name: OIDC Login to Azure Public Cloud with Azure CLI
       uses: azure/login@v1
       with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
   
     - name: Create API Management Instance with ARM action
       uses: azure/arm-deploy@v1
