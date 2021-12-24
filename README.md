@@ -1,7 +1,5 @@
 # Create and Deploy API Management Instance with Azure DevOps
 
-## Instruction
-
 This repository contains sample ARM template, parameter file, and GitHub Actions flow to provision Azure API Management instance with system assigned managed identity enabled.
 For more details, check my blog entry below (in Japanese).
 
