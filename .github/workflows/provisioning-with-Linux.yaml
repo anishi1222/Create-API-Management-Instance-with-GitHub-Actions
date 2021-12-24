@@ -9,7 +9,7 @@ jobs:
   Create-API-Management-Instance-with-GitHub-Actions:
     runs-on: ubuntu-latest
     env:
-      ResourceGroupName: APIM-rg
+      ResourceGroup_Base: APIM-rg
       ResourceGroupLocation: "japaneast"
     steps:
     - name: Checkout
@@ -23,13 +23,13 @@ jobs:
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
     - name: Generate unique variable based on timestamp
-      run: echo SUFFIX=$(date +%s) >> $GITHUB_ENV
+      run: echo ResourceGroupName=${{ env.ResourceGroup_Base }}-$(date +%s) >> $GITHUB_ENV
 
     - name: Create Resource Group with Azure CLI
       uses: Azure/CLI@v1
       with:
         inlineScript: |
-          az group create -n ${{ env.ResourceGroupName }}-${{ env.SUFFIX }} -l ${{ env.ResourceGroupLocation }}
+          az group create -n ${{ env.ResourceGroupName }} -l ${{ env.ResourceGroupLocation }}
           echo "Azure resource group created"
 
     - name: Create API Management Instance with ARM action
