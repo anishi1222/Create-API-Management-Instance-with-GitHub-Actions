@@ -1,20 +1,27 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# Instruction
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+This repository contains sample ARM template, parameter file, and GitHub Actions flow to provision Azure API Management instance with system assigned managed identity enabled.
+For more details, check my blog entry below (in Japanese).
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+> Azure AD と OpenID Connectで連携した GitHub Actions で Azure API Management インスタンスを 生成する<br>
+> [https://logico-jp.io/2021/12/24/provision-api-management-instance-using-github-actions-integrated-with-azure-ad-via-openid-connect/](https://logico-jp.io/2021/12/24/provision-api-management-instance-using-github-actions-integrated-with-azure-ad-via-openid-connect/)
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+# Reference
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+The following items are used in this sample (as of December 24, 2021).
+
+- GitHub Action
+  - Azure login<br>
+    [https://github.com/marketplace/actions/azure-login](https://github.com/marketplace/actions/azure-login)  
+  - Deploy Azure Resource Manager (ARM) Template<br>
+    [https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template)
+  - Azure CLI Action<br> 
+    [https://github.com/marketplace/actions/azure-cli-action](https://github.com/marketplace/actions/azure-cli-action)
+  - Checkout<br>
+    [https://github.com/marketplace/actions/checkout](https://github.com/marketplace/actions/checkout)
+- ARM template
+  - [https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-msi](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-msi) 
+- Documents
+  - Use GitHub Actions to connect to Azure<br>[https://docs.microsoft.com/azure/developer/github/connect-from-azure](https://docs.microsoft.com/azure/developer/github/connect-from-azure)
+  -  Configuring OpenID Connect in Azure<br>
+     [https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)
