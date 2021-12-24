@@ -14,8 +14,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-      with:
-        path: main
 
     - name: OIDC Login to Azure Public Cloud with Azure CLI
       uses: azure/login@v1
