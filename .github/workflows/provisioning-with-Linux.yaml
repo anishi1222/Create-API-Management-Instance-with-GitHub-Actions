@@ -12,6 +12,11 @@ jobs:
       ResourceGroupName: APIM-rg
       ResourceGroupLocation: "japaneast"
     steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        path: main
+
     - name: OIDC Login to Azure Public Cloud with Azure CLI
       uses: azure/login@v1
       with:
@@ -29,6 +34,6 @@ jobs:
     - name: Create API Management Instance with ARM action
       uses: azure/arm-deploy@v1
       with:
-        template: ./examples/azuredeploy.json
+        template: ./azuredeploy.json
         resourceGroupName: ${{ env.ResourceGroupName }}
-        parameters: ./examples/azuredeploy.parameters.json publisherName=${{ secrets.PUBLISHER_NAME }} publisherEmail=${{ secrets.PUBLISHER_MAIL }}
+        parameters: ./azuredeploy.parameters.json publisherName=${{ secrets.PUBLISHER_NAME }} publisherEmail=${{ secrets.PUBLISHER_MAIL }}
