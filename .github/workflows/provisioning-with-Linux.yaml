@@ -6,7 +6,7 @@ permissions:
   contents: read
       
 jobs: 
-  Login-Azure-on-Linux:
+  Create-API-Management-Instance-with-GitHub-Actions:
     runs-on: ubuntu-latest
     env:
       ResourceGroupName: APIM-rg
@@ -29,6 +29,6 @@ jobs:
     - name: Create API Management Instance with ARM action
       uses: azure/arm-deploy@v1
       with:
-        template: ./azuredeploy.json
+        template: /azuredeploy.json
         resourceGroupName: ${{ env.ResourceGroupName }}
-        parameters: ./azuredeploy.parameters.json publisherName=${{ secrets.PUBLISHER_NAME }} publisherEmail=${{ secrets.PUBLISHER_MAIL }}
+        parameters: /azuredeploy.parameters.json publisherName=${{ secrets.PUBLISHER_NAME }} publisherEmail=${{ secrets.PUBLISHER_MAIL }}
