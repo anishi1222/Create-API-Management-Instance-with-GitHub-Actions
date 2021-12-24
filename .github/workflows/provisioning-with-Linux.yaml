@@ -16,8 +16,8 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
   
-    - name: 'Run Azure CLI commands'
-      run: |
-          az account show
-          az group list
-          pwd
+    - name: Create API Management Instance with ARM action
+      uses: azure/arm-deploy@v1
+      with:
+        template: ./azuredeploy.json
+        parameters: ./azuredeploy.parameters.json publisherName=${{ secrets.PUBLISHER_NAME }} publisherEmail=${{ secrets.PUBLISHER_MAIL }}
