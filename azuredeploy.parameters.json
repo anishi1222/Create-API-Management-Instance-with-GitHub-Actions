@@ -10,6 +10,9 @@
     },
     "publisherName": {
       "value": "templateTest"
+    },
+    "skuCount" : {
+      "value": 0
     }
   }
 }
