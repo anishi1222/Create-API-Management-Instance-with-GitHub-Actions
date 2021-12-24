@@ -6,6 +6,8 @@ For more details, check my blog entry below (in Japanese).
 > Azure AD と OpenID Connectで連携した GitHub Actions で Azure API Management インスタンスを 生成する<br>
 > [https://logico-jp.io/2021/12/24/provision-api-management-instance-using-github-actions-integrated-with-azure-ad-via-openid-connect/](https://logico-jp.io/2021/12/24/provision-api-management-instance-using-github-actions-integrated-with-azure-ad-via-openid-connect/)
 
+GitHub Actions flow file (`provisioning-instance-on-Linux-runner.yaml`) is not located in `.github/workflows/` to avoid provisioning lots of instances. To enable GitHub Actions flow, the YAML file should be located in designated directory (i.e., `.github/workflows/provisioning-instance-on-Linux-runner.yaml`).
+
 # Reference
 
 The following items are used in this sample (as of December 24, 2021).
