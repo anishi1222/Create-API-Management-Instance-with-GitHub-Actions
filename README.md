@@ -1,4 +1,6 @@
-# Instruction
+# Create and Deploy API Management Instance with Azure DevOps
+
+## Instruction
 
 This repository contains sample ARM template, parameter file, and GitHub Actions flow to provision Azure API Management instance with system assigned managed identity enabled.
 For more details, check my blog entry below (in Japanese).
@@ -8,7 +10,7 @@ For more details, check my blog entry below (in Japanese).
 
 GitHub Actions flow file (`provisioning-instance-on-Linux-runner.yaml`) is not located in `.github/workflows/` to avoid provisioning lots of instances. To enable GitHub Actions flow, the YAML file should be located in designated directory (i.e., `.github/workflows/provisioning-instance-on-Linux-runner.yaml`).
 
-# Reference
+## Reference
 
 The following items are used in this sample (as of December 24, 2021).
 
