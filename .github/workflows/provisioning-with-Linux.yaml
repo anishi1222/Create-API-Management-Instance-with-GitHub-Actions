@@ -29,6 +29,6 @@ jobs:
     - name: Create API Management Instance with ARM action
       uses: azure/arm-deploy@v1
       with:
-        template: ../../azuredeploy.json
+        template: ./examples/azuredeploy.json
         resourceGroupName: ${{ env.ResourceGroupName }}
-        parameters: ../../azuredeploy.parameters.json publisherName=${{ secrets.PUBLISHER_NAME }} publisherEmail=${{ secrets.PUBLISHER_MAIL }}
+        parameters: ./examples/azuredeploy.parameters.json publisherName=${{ secrets.PUBLISHER_NAME }} publisherEmail=${{ secrets.PUBLISHER_MAIL }}
